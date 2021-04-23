@@ -4,7 +4,7 @@
 const form = document.querySelector('.form-inline');
 
 //grab an input
-const inputEmail = form.querySelector('#inputEmail');
+const inputEmail = form.querySelector('#email');
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
