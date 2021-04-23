@@ -147,7 +147,7 @@ a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #fba70b;
+  background-color: #45a1e4;
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -251,11 +251,11 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fba70b!important;
+  color: #45a1e4!important;
 }
 
 .background-header .nav li a.active {
-  color: #fba70b!important;
+  color: #45a1e4!important;
 }
 
 .header-area {
@@ -332,7 +332,7 @@ header
 }
 
 .header-area .main-nav .nav li:hover a {
-  color: #fba70b;
+  color: #45a1e4;
 }
 
 .header-area .main-nav .nav li.submenu {
@@ -397,12 +397,12 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background: #fba70b;
+  background: #45a1e4;
 }
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #fba70b!important;
+  color: #45a1e4!important;
   padding-left: 25px;
 }
 
@@ -538,7 +538,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #fba70b;
+  color: #45a1e4;
 }
 
 @media (max-width: 1200px) {
@@ -606,7 +606,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #fba70b!important;
+    color: #45a1e4!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -680,7 +680,7 @@ welcome
 
 .welcome-area .header-text h1 em {
   font-style: normal;
-  color: #fba70b;
+  color: #45a1e4;
 }
 
 .welcome-area .header-text p {
@@ -1060,7 +1060,7 @@ footer .right-content {
 
 .footer-content .right-content h2 em {
   font-style: normal;
-  color: #fba70b;
+  color: #45a1e4;
 }
 
 .footer-content .right-content p {
@@ -1107,8 +1107,8 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-  background-color: #fba70b;
-  border-color: #fba70b;
+  background-color: #45a1e4;
+  border-color: #45a1e4;
   color: #fff;
 }
 
