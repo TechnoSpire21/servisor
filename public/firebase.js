@@ -1,7 +1,7 @@
 'use strict';
 
 //grab a form
-const form = document.querySelector('.form-inline');
+const form = document.querySelector('#contact');
 
 //grab an input
 const inputEmail = form.querySelector('#email');
