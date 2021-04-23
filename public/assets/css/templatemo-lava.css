@@ -1060,7 +1060,7 @@ footer .right-content {
 
 .footer-content .right-content h2 em {
   font-style: normal;
-  color: #45a1e4;
+  color: #12EBA0;
 }
 
 .footer-content .right-content p {
@@ -1072,7 +1072,7 @@ footer .right-content {
 }
 
 .footer-content .right-content a:hover {
-  color: #FC3;
+  color: #12EBA0;
 }
 
 footer .social {
@@ -1107,8 +1107,8 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-  background-color: #45a1e4;
-  border-color: #45a1e4;
+  background-color: #12EBA0;
+  border-color: #12EBA0;
   color: #fff;
 }
 
@@ -1132,7 +1132,7 @@ footer .sub-footer a {
 }
 
 footer .sub-footer a:hover {
-	color: #FC3;
+	color: #12EBA0;
 }
 
 footer .sub-footer p {
