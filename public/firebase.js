@@ -8,7 +8,7 @@ const inputEmail = form.querySelector('#inputEmail');
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
     authDomain: "servisor-fa4bf.firebaseapp.com",
     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
