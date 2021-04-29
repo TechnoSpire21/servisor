@@ -1,13 +1,13 @@
 'use strict';
 
 //grab a form
-const form_perbaikan = document.querySelector('.form-perbaikan');
+const form_perbaikan = document.querySelector('.form_perbaikan');
 
 //grab an input
-const nama = form_perbaikan.querySelector('#name');
-const email1 = form_perbaikan.querySelector('#email1');
-const nomor = form_perbaikan.querySelector('#nomor');
-const alamat = form_perbaikan.querySelector('#alamat');
+const name = form_perbaikan.querySelector('#name');
+const email = form_perbaikan.querySelector('#email');
+const phone = form_perbaikan.querySelector('#phone');
+const address = form_perbaikan.querySelector('#address');
 const kendala = form_perbaikan.querySelector('#kendala');
 const description = form_perbaikan.querySelector('#description');
 
@@ -25,7 +25,7 @@ const config = {
 
 
 //create a functions to push
-function firebasePushPerbaikan(name, email1, nomor, alamat, kendala, description){
+function firebasePushPerbaikan(name, email, phone, address, kendala, description){
     //prevents from braking
     if (!firebase.apps.length) {
         firebase.initializeApp(config);
@@ -33,10 +33,10 @@ function firebasePushPerbaikan(name, email1, nomor, alamat, kendala, description
 
     var perbaikanRef = firebase.database().ref('perbaikan').push().set(
         {
-            nama: name.value,
-            email: email1.value,
-            telepon: nomor.value,
-            alamat: alamat.value,
+            name: name.value,
+            email: email.value,
+            phone: phone.value,
+            address: address.value,
             kendala: kendala.value,
             description: description.value,
         }
@@ -47,7 +47,7 @@ function firebasePushPerbaikan(name, email1, nomor, alamat, kendala, description
 if (form_perbaikan){
     form_perbaikan.addEventListener('submit', function(evt1){
         evt1.preventDefault();
-        firebasePushPerbaikan(nama, email1, nomor, alamat, kendala, description);
+        firebasePushPerbaikan(name, email, phone, address, kendala, description);
         return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }
