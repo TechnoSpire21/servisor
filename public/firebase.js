@@ -2,10 +2,18 @@
 
 //grab a form
 const form = document.querySelector('.form-inline');
+const form_perbaikan = document.querySelector('.form-perbaikan');
 
 //grab an input
 const inputEmail = form.querySelector('#inputEmail');
 
+//input for perbaikan
+const name = form.querySelector('#name');
+const email1 = form.querySelector('#email1');
+const nomor = form.querySelector('#nomor');
+const alamat = form.querySelector('#alamat');
+const kendala = form.querySelector('#kendala');
+const description = form.querySelector('#description');
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
@@ -38,11 +46,37 @@ function firebasePush(input) {
 
 }
 
+function firebasePushPerbaikan(name, email1, nomor, alamat, kendala, description){
+    //prevents from braking
+    if (!firebase.apps.length) {
+        firebase.initializeApp(config);
+    }
+
+    var perbaikanRef = firebase.database().ref('perbaikan').push().set(
+        {
+            nama: name.value,
+            email: email1.value,
+            telepon: nomor.value,
+            alamat: alamat.value,
+            kendala: kendala.value,
+            description: description.value,
+        }
+    )
+}
+
 //push on form submit
 if (form) {
     form.addEventListener('submit', function (evt) {
         evt.preventDefault();
         firebasePush(inputEmail);
         return alert('Your email has been successfully registered');
+    })
+}
+
+if (form_perbaikan){
+    form_perbaikan.addEventListener('submit', function(evt1){
+        evt1.preventDefault();
+        firebasePushPerbaikan(name, email1, nomor, alamat, kendala, description);
+        return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }
