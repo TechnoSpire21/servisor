@@ -25,7 +25,7 @@ const config = {
 
 
 //create a functions to push
-function firebasePushPerbaikan(name, email, phone, address, kendala, description){
+function firebasePushPerbaikan(name, email, phone, address, kendala, description) {
     //prevents from braking
     if (!firebase.apps.length) {
         firebase.initializeApp(config);
@@ -43,11 +43,33 @@ function firebasePushPerbaikan(name, email, phone, address, kendala, description
     )
 }
 
+function uploadImage() {
+    const ref = firebase.storage().ref()
+    const file = document.querySelector('#files').files[0];
+    const namaFoto = new Date() + '-' + file.name
+    const metadata = {
+        contentType: file.type
+    }
+
+    const task = ref.child(namaFoto).put(file, metadata)
+
+    task.then(snapshot => snapshot.ref.getDownloadURL()).then(url => { console.log(url), saveImage(url) })
+}
+
+function saveImage(url){
+    var perbaikanRef2 = firebase.database().ref('perbaikan').push().update(
+        {
+            bukti: url,
+        }
+    )
+}
+
 //push on form submit
-if (form_perbaikan){
-    form_perbaikan.addEventListener('submit', function(evt1){
+if (form_perbaikan) {
+    form_perbaikan.addEventListener('submit', function (evt1) {
         evt1.preventDefault();
         firebasePushPerbaikan(name, email, phone, address, kendala, description);
+        uploadImage();
         return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }
