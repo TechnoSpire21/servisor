@@ -57,11 +57,30 @@ function uploadImage() {
 }
 
 function saveImage(url){
-    var perbaikanRef2 = firebase.database().ref('perbaikan').push().update(
-        {
-            bukti: url,
-        }
-    )
+
+    var testing;
+
+    var query = firebase.database().ref('perbaikan').orderByKey().once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            // if(childSnapshot.child('id') == '1'){
+                var key = childSnapshot.key;
+                var perbaikanRef2 = firebase.database().ref('perbaikan').child(key).update(
+                    {
+                        bukti: url,
+                        kunci: key,
+                    }
+                )
+            // }
+        });
+    });
+    
+    // var perbaikanRef2 = firebase.database().ref('perbaikan').child('-MZwgyMggOCu-OfMMPYW').update(
+    //     {
+    //         bukti: url,
+    //         kunci: key,
+    //     }
+    // )
+
 }
 
 //push on form submit
@@ -73,4 +92,3 @@ if (form_perbaikan) {
         return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }
-
