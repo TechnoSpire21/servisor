@@ -58,28 +58,27 @@ function uploadImage() {
 
 function saveImage(url){
 
-    var testing;
+    var key;
 
-    var query = firebase.database().ref('perbaikan').orderByKey().once('value').then(function(snapshot) {
+    var query = firebase.database().ref('perbaikan').once('value').then(function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
-            // if(childSnapshot.child('id') == '1'){
-                var key = childSnapshot.key;
-                var perbaikanRef2 = firebase.database().ref('perbaikan').child(key).update(
-                    {
-                        bukti: url,
-                        kunci: key,
-                    }
-                )
-            // }
+                key = childSnapshot.key;
         });
+
+        tambahBukti(url, key);
+
     });
+
+}
+
+function tambahBukti(url, key){
     
-    // var perbaikanRef2 = firebase.database().ref('perbaikan').child('-MZwgyMggOCu-OfMMPYW').update(
-    //     {
-    //         bukti: url,
-    //         kunci: key,
-    //     }
-    // )
+    var perbaikanRef3 = firebase.database().ref('perbaikan').child(key).update(
+        {
+            bukti: url,
+            kunci: key,
+        }
+    )
 
 }
 
