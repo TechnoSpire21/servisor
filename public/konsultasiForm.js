@@ -57,7 +57,7 @@ function uploadImage() {
 }
 
 function saveImage(url){
-    var perbaikanRef2 = firebase.database().ref('konsultasi').push().update(
+    var konsultasiRef2 = firebase.database().ref('konsultasi').push().update(
         {
             bukti: url,
         }
