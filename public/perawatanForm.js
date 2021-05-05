@@ -43,11 +43,33 @@ function firebasePushPerbaikan(name, email, phone, address, perawatan, descripti
     )
 }
 
+function uploadImage() {
+    const ref = firebase.storage().ref()
+    const file = document.querySelector('#files').files[0];
+    const namaFoto = new Date() + '-' + file.name
+    const metadata = {
+        contentType: file.type
+    }
+
+    const task = ref.child(namaFoto).put(file, metadata)
+
+    task.then(snapshot => snapshot.ref.getDownloadURL()).then(url => { console.log(url), saveImage(url) })
+}
+
+function saveImage(url){
+    var perbaikanRef2 = firebase.database().ref('perawatan').push().update(
+        {
+            bukti: url,
+        }
+    )
+}
+
 //push on form submit
 if (form_perawatan){
     form_perawatan.addEventListener('submit', function(evt1){
         evt1.preventDefault();
         firebasePushPerbaikan(name, email, phone, address, perawatan, description);
+        uploadImage();
         return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }

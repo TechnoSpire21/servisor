@@ -69,6 +69,7 @@ if (form_konsultasi){
     form_konsultasi.addEventListener('submit', function(evt1){
         evt1.preventDefault();
         firebasePushKonsultasi(name, email, phone, address, konsultasi, description);
+        uploadImage();
         return alert("Permintaan Anda telah terkirim. Terima Kasih.")
     })
 }
