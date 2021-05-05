@@ -43,6 +43,27 @@ function firebasePushKonsultasi(name, email, phone, address, konsultasi, descrip
     )
 }
 
+function uploadImage() {
+    const ref = firebase.storage().ref()
+    const file = document.querySelector('#files').files[0];
+    const namaFoto = new Date() + '-' + file.name
+    const metadata = {
+        contentType: file.type
+    }
+
+    const task = ref.child(namaFoto).put(file, metadata)
+
+    task.then(snapshot => snapshot.ref.getDownloadURL()).then(url => { console.log(url), saveImage(url) })
+}
+
+function saveImage(url){
+    var perbaikanRef2 = firebase.database().ref('konsultasi').push().update(
+        {
+            bukti: url,
+        }
+    )
+}
+
 //push on form submit
 if (form_konsultasi){
     form_konsultasi.addEventListener('submit', function(evt1){
