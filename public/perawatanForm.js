@@ -57,11 +57,29 @@ function uploadImage() {
 }
 
 function saveImage(url){
-    var perawatanRef2 = firebase.database().ref('perawatan').push().update(
+
+    var key;
+
+    var query = firebase.database().ref('perawatan').once('value').then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+                key = childSnapshot.key;
+        });
+
+        tambahBukti(url, key);
+
+    });
+
+}
+
+function tambahBukti(url, key){
+    
+    var perbaikanRef3 = firebase.database().ref('perawatan').child(key).update(
         {
             bukti: url,
+            kunci: key,
         }
     )
+
 }
 
 //push on form submit
