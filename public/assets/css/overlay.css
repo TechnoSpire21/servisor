@@ -1,23 +1,26 @@
 .container123 {
     position: relative;
-    width: 50%;
+    width: 20%;
   }
   
   .image123 {
     display: block;
-    width: 40%;
+    width: 100px;
     height: auto;
   }
   
   .overlay123 {
     position: absolute;
-    top: 0%;
-    left: 0%;
-    height: 40%;
-    width: 40%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 100px;
     opacity: 0;
     transition: .5s ease;
     background-color: #008CBA;
+    border-radius: 10px;
   }
   
   .container123:hover .overlay123 {
@@ -26,13 +29,9 @@
   
   .text123 {
     color: white;
-    /* background-color: #008CBA; */
+    background-color: #008CBA;
     font-size: 20px;
-    position: absolute;
-    top: 40%;
-    left: 0%;
-    -webkit-transform: translate(35%, 35%);
-    -ms-transform: translate(35%, 35%);
-    transform: translate(35%, 35%);
+    position: relative;
+    top: 17.5px;
     text-align: center;
   }
