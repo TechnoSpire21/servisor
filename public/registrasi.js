@@ -51,7 +51,7 @@ function firebasePush(name, email, pass, phone, address, pengguna) {
         firebase.initializeApp(config);
     }
 
-    var perbaikanRef = firebase.database().ref('users').push().set(
+    var perbaikanRef = firebase.database().ref('users').child(pengguna).set(
         {
             name: name.value,
             email: email.value,
@@ -59,7 +59,6 @@ function firebasePush(name, email, pass, phone, address, pengguna) {
             phone: phone.value,
             address: address.value,
             uid: pengguna,
-            
         }
     )
 }
@@ -77,7 +76,7 @@ if (form_registrasi) {
         const pengguna = user1.user.uid
             console.log(pengguna);
             firebasePush(name, email, pass, phone, address, pengguna);
-            window.location.replace("login.html");
+            window.location.href = "login.html";
             return alert("Akun Anda telah terdaftar. Terima Kasih.")
         
     })
