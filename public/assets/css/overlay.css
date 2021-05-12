@@ -1,0 +1,38 @@
+.container123 {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image123 {
+    display: block;
+    width: 40%;
+    height: auto;
+  }
+  
+  .overlay123 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 40%;
+    width: 40%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+  
+  .container123:hover .overlay123 {
+    opacity: 1;
+  }
+  
+  .text123 {
+    color: white;
+    /* background-color: #008CBA; */
+    font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    -webkit-transform: translate(35%, 35%);
+    -ms-transform: translate(35%, 35%);
+    transform: translate(35%, 35%);
+    text-align: center;
+  }
