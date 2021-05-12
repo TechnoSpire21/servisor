@@ -25,8 +25,10 @@ const config = {
 firebase.initializeApp(config);
 
 function RegisterUser() {
-    var emailUser = document.getElementById('email').value;
-    var passUser = document.getElementById('pass').value;
+    var emailUser = document.getElementById('email').value.toString();
+    var passUser = document.getElementById('pass').value.toString();
+    console.log(emailUser);
+    console.log(passUser);
     firebase.auth().createUserWithEmailAndPassword(emailUser, passUser).then((userCredential) => {
         
     }).catch((error) => {
