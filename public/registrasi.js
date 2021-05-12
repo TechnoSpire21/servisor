@@ -24,22 +24,29 @@ const config = {
 
 firebase.initializeApp(config);
 
-function RegisterUser() {
+async function RegisterUser() {
     var emailUser = document.getElementById('email').value.toString();
     var passUser = document.getElementById('pass').value.toString();
     console.log(emailUser);
     console.log(passUser);
-    firebase.auth().createUserWithEmailAndPassword(emailUser, passUser).then((userCredential) => {
-        
-    }).catch((error) => {
+    try {
+        const user1 = await firebase.auth().createUserWithEmailAndPassword(emailUser, passUser);
+        // console.log(user1.user.uid);
+        return user1.user.uid;
+    } catch (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-    });
-    
+        console.log(errorCode);
+        console.log(errorMessage);
+    }
+
+
+
 }
 
-function firebasePush(name, email, pass, phone, address,) {
+function firebasePush(name, email, pass, phone, address, pengguna) {
     //prevents from braking
+
     if (!firebase.apps.length) {
         firebase.initializeApp(config);
     }
@@ -51,7 +58,7 @@ function firebasePush(name, email, pass, phone, address,) {
             pass: pass.value,
             phone: phone.value,
             address: address.value,
-            // uid: user1.value,
+            uid: pengguna,
         }
     )
 }
@@ -59,10 +66,17 @@ function firebasePush(name, email, pass, phone, address,) {
 
 
 if (form_registrasi) {
-    form_registrasi.addEventListener('submit', function (evt1) {
+    form_registrasi.addEventListener('submit', async function (evt1) {
         evt1.preventDefault();
-        RegisterUser();
-        firebasePush(name, email, pass, phone, address);
-        return alert("Akun Anda telah terdaftar. Terima Kasih.")
+        var emailUser = document.getElementById('email').value.toString();
+        var passUser = document.getElementById('pass').value.toString();
+        console.log(emailUser);
+        console.log(passUser);
+        const user1 = await firebase.auth().createUserWithEmailAndPassword(emailUser, passUser);
+        const pengguna = user1.user.uid
+            console.log(pengguna);
+            firebasePush(name, email, pass, phone, address, pengguna);
+            return alert("Akun Anda telah terdaftar. Terima Kasih.")
+        
     })
 }
