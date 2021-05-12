@@ -59,6 +59,7 @@ function firebasePush(name, email, pass, phone, address, pengguna) {
             phone: phone.value,
             address: address.value,
             uid: pengguna,
+            
         }
     )
 }
@@ -76,6 +77,7 @@ if (form_registrasi) {
         const pengguna = user1.user.uid
             console.log(pengguna);
             firebasePush(name, email, pass, phone, address, pengguna);
+            window.location.replace("login.html");
             return alert("Akun Anda telah terdaftar. Terima Kasih.")
         
     })
