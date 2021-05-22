@@ -54,6 +54,6 @@ if (form_login) {
         
         // window.location.replace("index.html");
         return alert("Berhasil Login");
-
+        window
     })
 }
