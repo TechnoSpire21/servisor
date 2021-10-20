@@ -9,7 +9,7 @@
         content="Nicky Santano | Hans Richard Alim Natadjaja | Reiner Anggriawan Jasin | William | Franciscus Valentinus Ongkosianbhadra">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
-    <title>Perawatan - Servisor</title>
+    <title>Konsultasi - Servisor</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -36,14 +36,14 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                        <a href="index.html" class="logo">
+                        <a href="../index.html" class="logo">
                             Servisor
                         </a>
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.html#welcome">Beranda</a></li>
                             <li class="scroll-to-section"><a href="index.html#about">Tentang</a></li>
                             <li class="scroll-to-section submenu">
-                                <a href="index.html#promotion">Fitur</a>
+                                <a href="../index.html#promotion">Fitur</a>
                                 <ul>
                                     <li><a href="perbaikan.html">Perbaikan</a></li>
                                     <li><a href="perawatan.html">Perawatan</a></li>
@@ -65,47 +65,43 @@
     <div class="container" style="margin-top: 7em; margin-bottom: 5em;">
 
         <div style="background-image: url(assets/images/servisor-blur-opacity65.png); background-repeat: no-repeat;background-position: center;">
-        <form method="POST" enctype="multipart/form-data" class="form_perawatan">
+        <form method="POST" enctype="multipart/form-data" class="form_konsultasi">
             <div class="form-group">
                 <label for="name">Nama :</label>
                 <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
-                <label for="email1">Email :</label>
+                <label for="email">Email :</label>
                 <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="form-group">
-                <label for="nomor">Nomor telepon :</label>
+                <label for="phone">Nomor telepon :</label>
                 <input type="number" class="form-control" id="phone" name="phone">
             </div>
             <div class="form-group">
-                <label for="alamat">Alamat Rumah :</label>
+                <label for="address">Alamat Rumah :</label>
                 <input type="text" class="form-control" id="address" name="address">
             </div>
             <div class="form-group">
-                <label for="kendala">Jenis Perawatan apa yang anda inginkan : </label>
-                <select name="perawatan" id="perawatan" class="custom-select">
-                    <option value="pengecekan_dan_pembersihan_komponen_pc_atau_laptop_(hardware)">Pengecekan dan pembersihan komponen PC / Laptop (Hardware)</option>
-                    <option value="pembersihan_pc_atau_laptop_(software)">Pembersihan PC / Laptop (Software)</option>
-                    <option value="perbarui_driver">Perbarui Driver</option>
-                    <option value="maintenance_pc_atau_laptop">Maintenance PC / Laptop (contoh: penggantian Thermal Paste, isi ulang Liquid PC Cooling, dll)</option>
-                    <option value="pengecekan_dan_pembersihan_virus">Pengecekan dan Pembersihan Virus</option>
+                <label for="konsultasi">Apa yang ingin Anda konsultasikan : </label>
+                <select name="konsultasi" id="konsultasi" class="custom-select">
+                    <option value="hardware">Perangkat Keras (Hardware)</option>
+                    <option value="software">Perangkat Lunak (Software)</option>
                 </select>
             </div>
             <div class="form-group">
-                <label form="bukti">Masukkan gambar dari perangkat yang ingin Anda rawat</label>
+                <label form="bukti">Masukkan gambar dari perangkat yang ingin Anda konsultasikan</label>
                 <input type="file" class="form-control-file" id="files" name="files[]">
             </div>
             <div>
                 <div class="form-group">
-                    <label for="description">Deskripsikan perawatan yang Anda inginkan : </label>
+                    <label for="description">Deskripsikan apa yang ingin Anda konsultasikan : </label>
                     <textarea rows="4" class="form-control" id="description" name="description"></textarea>
                 </div>
             </div>
             <input class="btn btn-primary" type="submit" id="submit" name="submit" value="Kirim">
         </form>
         </div>
-
     </div>
 
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -128,7 +124,7 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-    <script src="perawatanForm.js"></script>
+    <script src="konsultasiForm.js"></script>
 </body>
 
 </html>
