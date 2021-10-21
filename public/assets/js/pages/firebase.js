@@ -1,4 +1,8 @@
 'use strict';
+// import { async } from "@firebase/util";
+import { initializeApp } from "../../../../node_modules/firebase/firebase-app.js";
+import { getFirestore } from "../../../../node_modules/firebase/firebase-firestore.js";
+import { collection, addDoc } from "../../../../node_modules/firebase/firebase-firestore.js";
 
 //grab a form
 const form = document.querySelector('.form-inline');
@@ -7,7 +11,7 @@ const form = document.querySelector('.form-inline');
 const inputEmail = form.querySelector('#inputEmail');
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const config = {
+const firebaseApp = initializeApp({
     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
     authDomain: "servisor-fa4bf.firebaseapp.com",
     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
@@ -16,24 +20,41 @@ const config = {
     messagingSenderId: "722678778553",
     appId: "1:722678778553:web:4fd79994047389fb702968",
     measurementId: "G-4W2316QSJ1"
-};
+});
+
+const db = getFirestore();
 
 
 //create a functions to push
-function firebasePush(input) {
+async function firebasePush(input) {
 
 
-    //prevents from braking
-    if (!firebase.apps.length) {
-        firebase.initializeApp(config);
+    try {
+        const docRef = await addDoc(collection(db, "mailer"), {
+            mailer: input.value
+        });
+        console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+        console.error("Error adding document: ", e);
     }
 
     //push itself
-    var mailsRef = firebase.database().ref('emails').push().set(
-        {
-            mail: input.value
-        }
-    );
+    // var mailsRef = firebase.database().ref('emails').push().set(
+    //     {
+    //         mail: input.value
+    //     }
+    // );
+
+    // Add a second document with a generated ID.
+    // db.collection("mails").add({
+    //     mail: input.value
+    // })
+    // .then((docRef) => {
+    //     console.log("Document written with ID: ", docRef.id);
+    // })
+    // .catch((error) => {
+    //     console.error("Error adding document: ", error);
+    // });
 
 }
 
