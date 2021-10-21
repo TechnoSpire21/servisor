@@ -1,8 +1,8 @@
 'use strict';
 // import { async } from "@firebase/util";
-import { initializeApp } from "../../../../node_modules/firebase/firebase-app.js";
-import { getFirestore } from "../../../../node_modules/firebase/firebase-firestore.js";
-import { collection, addDoc } from "../../../../node_modules/firebase/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
 
 //grab a form
 const form = document.querySelector('.form-inline');
@@ -22,7 +22,7 @@ const firebaseApp = initializeApp({
     measurementId: "G-4W2316QSJ1"
 });
 
-const db = getFirestore();
+const db = getFirestore(firebaseApp);
 
 
 //create a functions to push
