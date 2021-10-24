@@ -36,7 +36,7 @@ var storage = firebase.storage();
 //create a functions to push
 function firebasePushPerbaikan(name, email, phone, address, kendala, description) {
 
-    const result = db.collection("perbaikan").add({
+    db.collection("perbaikan").add({
         name: name.value,
         email: email.value,
         phone: phone.value,
@@ -94,7 +94,7 @@ function uploadImage(refId) {
         contentType: file.type
     }
 
-    const task = ref.child(namaFoto).put(file, metadata);
+    const task = ref.child("perbaikan/"+namaFoto).put(file, metadata);
 
     task.then(snapshot => snapshot.ref.getDownloadURL()).then(url => { console.log(url), saveImage(url, refId) });
     
