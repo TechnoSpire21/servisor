@@ -11,7 +11,7 @@ const cpass = form_registrasi.querySelector('#cpass');
 const phone = form_registrasi.querySelector('#phone');
 const address = form_registrasi.querySelector('#address');
 
-const config = {
+firebase.initializeApp({
     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
     authDomain: "servisor-fa4bf.firebaseapp.com",
     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
@@ -20,25 +20,42 @@ const config = {
     messagingSenderId: "722678778553",
     appId: "1:722678778553:web:4fd79994047389fb702968",
     measurementId: "G-4W2316QSJ1"
-};
+});
 
-firebase.initializeApp(config);
+var db = firebase.firestore();
+var storage = firebase.storage();
+var auth = firebase.auth();
+var dateNow = new Date();
+
 
 async function RegisterUser() {
     var emailUser = document.getElementById('email').value.toString();
     var passUser = document.getElementById('pass').value.toString();
     console.log(emailUser);
     console.log(passUser);
-    try {
-        const user1 = await firebase.auth().createUserWithEmailAndPassword(emailUser, passUser);
-        // console.log(user1.user.uid);
-        return user1.user.uid;
-    } catch (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-    }
+
+    firebase.auth().createUserWithEmailAndPassword(emailUser, passUser)
+        .then((userCredential) => {
+            // Signed in 
+            var user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+        });
+
+    // try {
+    //     const user1 = await auth.createUserWithEmailAndPassword(emailUser, passUser);
+    //     // console.log(user1.user.uid);
+    //     return user1.user.uid;
+    // } catch (error) {
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     console.log(errorCode);
+    //     console.log(errorMessage);
+    // }
 
 
 
@@ -47,20 +64,39 @@ async function RegisterUser() {
 function firebasePush(name, email, pass, phone, address, pengguna) {
     //prevents from braking
 
-    if (!firebase.apps.length) {
-        firebase.initializeApp(config);
-    }
+    db.collection("users").doc(pengguna).set({
+        name: name.value,
+        email: email.value,
+        pass: pass.value,
+        phone: phone.value,
+        address: address.value,
+        uid: pengguna,
+        isLogin: 0,
+        createdAt: dateNow,
+        updatedAt: dateNow 
+    })
+        .then((docRef) => {
+            // const refId = docRef.id;
+            console.log("User signed up with ID: ", pengguna);
+            window.location.href = "login.html";
+            return alert("Akun Anda telah terdaftar. Terima Kasih.")
 
-    var perbaikanRef = firebase.database().ref('users').child(pengguna).set(
-        {
-            name: name.value,
-            email: email.value,
-            pass: pass.value,
-            phone: phone.value,
-            address: address.value,
-            uid: pengguna,
-        }
-    )
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+            return alert("Ada masalah jaringan coba lagi klik daftar.")
+        });
+
+    // var perbaikanRef = firebase.database().ref('users').child(pengguna).set(
+    //     {
+    // name: name.value,
+    // email: email.value,
+    // pass: pass.value,
+    // phone: phone.value,
+    // address: address.value,
+    // uid: pengguna,
+    //     }
+    // )
 }
 
 
@@ -74,10 +110,8 @@ if (form_registrasi) {
         console.log(passUser);
         const user1 = await firebase.auth().createUserWithEmailAndPassword(emailUser, passUser);
         const pengguna = user1.user.uid
-            console.log(pengguna);
-            firebasePush(name, email, pass, phone, address, pengguna);
-            window.location.href = "login.html";
-            return alert("Akun Anda telah terdaftar. Terima Kasih.")
-        
+        console.log(pengguna);
+        firebasePush(name, email, pass, phone, address, pengguna);
+
     })
 }

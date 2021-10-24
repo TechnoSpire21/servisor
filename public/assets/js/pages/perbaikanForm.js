@@ -32,6 +32,7 @@ firebase.initializeApp({
 
 var db = firebase.firestore();
 var storage = firebase.storage();
+var dateNow = new Date();
 
 //create a functions to push
 function firebasePushPerbaikan(name, email, phone, address, kendala, description) {
@@ -45,6 +46,8 @@ function firebasePushPerbaikan(name, email, phone, address, kendala, description
         description: description.value,
         bukti: "",
         kunci: "",
+        createdAt: dateNow,
+        updatedAt: dateNow 
     })
     .then((docRef) => {
         const refId = docRef.id;

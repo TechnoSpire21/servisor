@@ -4,10 +4,10 @@
 const form_login = document.querySelector('.my-login-validation');
 
 //grab an input
-const email = form_login.querySelector('#email');
-const pass = form_login.querySelector('#password');
+const emailUser = form_login.querySelector('#email');
+const passUser = form_login.querySelector('#password');
 
-const config = {
+firebase.initializeApp({
     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
     authDomain: "servisor-fa4bf.firebaseapp.com",
     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
@@ -16,44 +16,57 @@ const config = {
     messagingSenderId: "722678778553",
     appId: "1:722678778553:web:4fd79994047389fb702968",
     measurementId: "G-4W2316QSJ1"
-};
+});
 
-function firebasePush(user) {
-    var perbaikanRef = firebase.database().ref('users').where().push().set(
-        {
-            name: name.value,
-            email: email.value,
-            pass: pass.value,
-            phone: phone.value,
-            address: address.value,
-            uid: pengguna,
+var db = firebase.firestore();
+var storage = firebase.storage();
+var auth = firebase.auth();
+var dateNow = new Date();
+
+function login(emailLogin, passLogin) {
+    firebase.auth().signInWithEmailAndPassword(emailLogin, passLogin)
+        .then((userCredential) => {
+            // Signed in
+            var userId = userCredential.user;
+            firebaseLogin(userId)
             
-        }
-    )
+            // ...
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.error(errorCode);
+            console.error(errorMessage);
+            return alert("Username atau password salah.");
+        });
+}
+
+function firebaseLogin(userId) {
+    console.log(userId.uid);
+    db.collection("users").doc(userId.uid).set({
+        isLogin: 1,
+        updatedAt: dateNow 
+    }, { merge: true })
+        .then((docRef) => {
+            // const refId = docRef.id;
+            console.log("User", userId.uid, "logged on");
+            window.location.replace("../index.html");
+            return alert("Berhasil Login");
+
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+            return alert("Ada masalah jaringan coba Login ulang.");
+        });
 }
 
 if (form_login) {
     form_login.addEventListener('submit', async function (evt1) {
         evt1.preventDefault();
-        console.log(email.value);
-        console.log(pass.value);
-        firebase.initializeApp(config);
-        const user1 = await firebase.auth().signInWithEmailAndPassword(email.value, pass.value).then((userCredential) => {
-            // Signed in
-            var user = userCredential.user.uid;
-            console.log(user);
-            firebasePush(user);
-            // ...
-        }).catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
-            return alert("Gagal Login");
-        });;
-        
-        // window.location.replace("index.html");
-        return alert("Berhasil Login");
-        window
+        var emailLogin = emailUser.value;
+        var passLogin = passUser.value;
+        console.log(emailLogin);
+        console.log(passLogin);
+        login(emailLogin, passLogin);
     })
 }
