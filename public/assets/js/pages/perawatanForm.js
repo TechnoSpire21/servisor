@@ -25,7 +25,7 @@ firebase.initializeApp({
 
 var db = firebase.firestore();
 var storage = firebase.storage();
-
+var dateNow = new Date();
 
 //create a functions to push
 function firebasePushPerawatan(name, email, phone, address, perawatan, description){
@@ -40,6 +40,8 @@ function firebasePushPerawatan(name, email, phone, address, perawatan, descripti
         description: description.value,
         bukti: "",
         kunci: "",
+        createdAt: dateNow,
+        updatedAt: dateNow
     })
     .then((docRef) => {
         const refId = docRef.id;
@@ -86,7 +88,7 @@ if (form_perawatan){
     form_perawatan.addEventListener('submit', function(evt1){
         evt1.preventDefault();
         firebasePushPerawatan(name, email, phone, address, perawatan, description);
-        return alert("Permintaan Anda telah terkirim. Terima Kasih.")
+        return alert("Permintaan Anda telah terkirim. Tim kami akan segera menghubungi Anda lewat WA. Jika ingin informasi lebih cepat bisa langsung menghubungi WA kami. Terima Kasih.")
     })
 }
 

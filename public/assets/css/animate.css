@@ -26,9 +26,15 @@
     background-color: #45a1e4;
     border-radius: 20px;
     color: #FFFFFF;
+    z-index: 2;
 }
 .backCara.hide{
     background-color: transparent;
     border-radius: 20px;
     color: #000;
+    z-index: 2;
+}
+
+.listCara{
+    z-index: 5;
 }

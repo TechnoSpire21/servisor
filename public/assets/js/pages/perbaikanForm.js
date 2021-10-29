@@ -150,6 +150,6 @@ if (form_perbaikan) {
     form_perbaikan.addEventListener('submit', function (evt1) {
         evt1.preventDefault();
         firebasePushPerbaikan(name, email, phone, address, kendala, description);
-        return alert("Permintaan Anda telah terkirim. Terima Kasih.")
+        return alert("Permintaan Anda telah terkirim. Tim kami akan segera menghubungi Anda lewat WA. Jika ingin informasi lebih cepat bisa langsung menghubungi WA kami. Terima Kasih.")
     })
 }
