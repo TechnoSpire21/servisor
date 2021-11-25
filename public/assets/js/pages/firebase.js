@@ -1,17 +1,17 @@
 'use strict';
 // import { async } from "@firebase/util";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+// import { getFirestore } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
+// import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js";
 
 //grab a form
 const form = document.querySelector('.form-inline');
 
 //grab an input
-const inputEmail = form.querySelector('#inputEmail');
+// const inputEmail = form.querySelector('#inputEmail');
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseApp = initializeApp({
+firebase.initializeApp({
     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
     authDomain: "servisor-fa4bf.firebaseapp.com",
     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
@@ -22,13 +22,12 @@ const firebaseApp = initializeApp({
     measurementId: "G-4W2316QSJ1"
 });
 
-const db = getFirestore(firebaseApp);
-
+var db = firebase.firestore();
+const analytics = firebase.analytics();
+firebase.analytics().logEvent('notification_received');
 
 //create a functions to push
 async function firebasePush(input) {
-
-
     try {
         const docRef = await addDoc(collection(db, "mailer"), {
             mailer: input.value
