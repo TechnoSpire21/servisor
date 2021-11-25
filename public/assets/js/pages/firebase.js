@@ -11,16 +11,16 @@ const form = document.querySelector('.form-inline');
 // const inputEmail = form.querySelector('#inputEmail');
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-firebase.initializeApp({
-    apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
-    authDomain: "servisor-fa4bf.firebaseapp.com",
-    databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
-    projectId: "servisor-fa4bf",
-    storageBucket: "servisor-fa4bf.appspot.com",
-    messagingSenderId: "722678778553",
-    appId: "1:722678778553:web:4fd79994047389fb702968",
-    measurementId: "G-4W2316QSJ1"
-});
+// firebase.initializeApp({
+//     apiKey: "AIzaSyCOmlwNh81n3nw5S5NmoK2-vTegWLtWNVg",
+//     authDomain: "servisor-fa4bf.firebaseapp.com",
+//     databaseURL: "https://servisor-fa4bf-default-rtdb.firebaseio.com",
+//     projectId: "servisor-fa4bf",
+//     storageBucket: "servisor-fa4bf.appspot.com",
+//     messagingSenderId: "722678778553",
+//     appId: "1:722678778553:web:4fd79994047389fb702968",
+//     measurementId: "G-4W2316QSJ1"
+// });
 
 var db = firebase.firestore();
 const analytics = firebase.analytics();
