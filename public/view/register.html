@@ -23,6 +23,25 @@
 
     <link rel="icon" href="../assets/images/servisor-nobg.png">
 
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '444164757349852');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=444164757349852&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 
 <body style="background-color: #eaeaea; padding: 20px;" class="my-register-page">
@@ -66,7 +85,7 @@
             </div>
         </div>
     </header>
-<!-- 
+    <!-- 
     <div class="container" style="margin-top: 7em; margin-bottom: 5em;">
         <div
             style="background-image: url(assets/images/servisor-blur-opacity65.png); background-repeat: no-repeat;background-position: center;">
@@ -115,7 +134,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Registrasi</h4>
                             <!-- Form -->
-                            <form method="POST" class="form_registrasi" id="form_registrasi" enctype="multipart/form-data">
+                            <form method="POST" class="form_registrasi" id="form_registrasi"
+                                enctype="multipart/form-data">
                                 <!-- Nama Lengkap -->
                                 <div class="form-group">
                                     <label for="name">Nama Lengkap</label>
@@ -129,26 +149,29 @@
                                 <!-- Email -->
                                 <div class="form-group">
                                     <label for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required autofocus>                                    
+                                    <input id="email" type="email" class="form-control" name="email" value="" required
+                                        autofocus>
                                 </div>
 
                                 <!-- Kata Sandi -->
                                 <div class="form-group">
                                     <label for="pass">Kata Sandi</label>
-                                    <input type="password" class="form-control" id="pass" name="pass" onkeyup='check();' required data-eye>
+                                    <input type="password" class="form-control" id="pass" name="pass" onkeyup='check();'
+                                        required data-eye>
                                 </div>
 
                                 <!-- Konfirmasi Kata Sandi -->
                                 <div class="form-group" style="margin: 0; padding: 0;">
                                     <label for="cpass">Konfirmasi Kata Sandi</label>
-                                    <input type="password" class="form-control" id="cpass" name="cpass" onkeyup='check();' required data-eye>
+                                    <input type="password" class="form-control" id="cpass" name="cpass"
+                                        onkeyup='check();' required data-eye>
                                 </div>
 
                                 <!-- Password Right or Wrong Notification -->
                                 <span id='message'></span>
                                 <br />
                                 <span id='message2'></span>
-                                
+
                                 <!-- Nomor Telepon -->
                                 <div class="form-group" style="margin-top: 5px;">
                                     <label for="phone">Nomor Telepon</label>
@@ -159,11 +182,12 @@
                                 <div class="form-group">
                                     <label for="address">Alamat Rumah :</label>
                                     <input type="text" class="form-control" id="address" name="address" required>
-                                </div>          
-                                
+                                </div>
+
                                 <!-- Button Enter -->
                                 <div class="form-group m-0">
-                                    <input class="btn btn-primary btn-block" type="submit" id="submit" name="submit" value="Daftar">
+                                    <input class="btn btn-primary btn-block" type="submit" id="submit" name="submit"
+                                        value="Daftar">
                                 </div>
 
                                 <!-- Already Have Account -->
