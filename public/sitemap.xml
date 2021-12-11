@@ -9,13 +9,43 @@
 
 <url>
   <loc>https://servisor.web.app/</loc>
-  <lastmod>2021-04-26T14:14:06+00:00</lastmod>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://servisor.web.app/index.html</loc>
-  <lastmod>2021-04-26T14:14:06+00:00</lastmod>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/perbaikan.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/perawatan.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/konsultasi.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/login.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/register.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://servisor.web.app/view/forgot.html</loc>
+  <lastmod>2021-12-11T10:10:08+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
