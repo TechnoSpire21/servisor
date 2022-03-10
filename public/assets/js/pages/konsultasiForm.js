@@ -25,6 +25,8 @@ firebase.initializeApp({
 
 var db = firebase.firestore();
 var storage = firebase.storage();
+const analytics = firebase.analytics();
+firebase.analytics().logEvent('notification_received');
 var dateNow = new Date();
 
 //create a functions to push
