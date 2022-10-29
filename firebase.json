@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "servisor",
     "public": "public",
     "ignore": [
       "firebase.json",
